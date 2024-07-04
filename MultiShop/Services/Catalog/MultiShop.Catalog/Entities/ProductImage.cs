@@ -14,6 +14,8 @@ namespace MultiShop.Catalog.Entities
         public string Image2 { get; set; }
         public string Image3 { get; set; }
         public string ProductId { get; set; }
+
+        [BsonIgnore]  //özelliğin MongoDb de kaydedilmesini engeller. 
         public Product Product { get; set; }
     }
 }

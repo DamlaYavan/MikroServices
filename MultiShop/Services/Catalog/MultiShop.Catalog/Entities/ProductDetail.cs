@@ -11,7 +11,10 @@ namespace MultiShop.Catalog.Entities
 
         public string ProductLongDescription { get; set; }
         public string ProductInfo { get; set; }
-        public string ProductName { get; set; }
-        public decimal Price { get; set; }
+        public string ProductId { get; set; }
+
+        [BsonIgnore] // //özelliğin MongoDb de kaydedilmesini engeller. 
+        public Product Product { get; set; }
+       
     }
 }
