@@ -24,7 +24,7 @@ namespace MultiShop.Catalog.Services.CategoryServices
             _mapper = mapper;
         }
 
-        public async Task CreatCategoryAsync(CreateCategoryDto createCategoryDto)
+        public async Task CreateCategoryAsync(CreateCategoryDto createCategoryDto)
         {
             var value =_mapper.Map<Category>(createCategoryDto); // mapleme (eşleme) createcategoryDto ile category maplenir
             await _categoryCollection.InsertOneAsync(value); //mongodbde ekleme işlemi
@@ -36,13 +36,13 @@ namespace MultiShop.Catalog.Services.CategoryServices
            await _categoryCollection.DeleteOneAsync(x=>x.CategoryId== id);
         }
 
-        public async Task<List<ResultCategoryDto>> GetAllCategoyAsync()
+        public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
             var values = await _categoryCollection.Find(x => true).ToListAsync();
             return _mapper.Map<List<ResultCategoryDto>>(values);
         }
 
-        public async Task<GetByIdCategoryDto> GetByIdCategoyAsync(string id)
+        public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
         {
             var values= await _categoryCollection.Find<Category>(x=>x.CategoryId==id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdCategoryDto>(values);

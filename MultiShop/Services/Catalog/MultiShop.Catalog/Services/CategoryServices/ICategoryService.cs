@@ -7,11 +7,11 @@ namespace MultiShop.Catalog.Services.CategoryServices
 
         //Asenkron metotlar : eş zamanlı çalışan, hızlı 
     {
-        Task<List<ResultCategoryDto>> GetAllCategoyAsync();
-        Task CreatCategoryAsync(CreateCategoryDto createCategoryDto);
+        Task<List<ResultCategoryDto>> GetAllCategoryAsync();
+        Task CreateCategoryAsync(CreateCategoryDto createCategoryDto);
         Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto);
         Task DeleteCategoryAsync(string id);
-        Task<GetByIdCategoryDto> GetByIdCategoyAsync(string id);
+        Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id);
 
     }
 }
